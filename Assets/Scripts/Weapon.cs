@@ -10,19 +10,27 @@ public class Weapon : MonoBehaviour
     [SerializeField] float damage = 3f;
     [SerializeField] ParticleSystem gunflash;
     [SerializeField] GameObject hitEffect;
+    [SerializeField] Amo amo;
+    [SerializeField] float waitToFireTime;
+
+    bool canShoot = true;
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && amo.AmoAmount > 0 && canShoot == true)
         {
-            Shoot();
+            StartCoroutine(Shoot());
         }  
     }
 
-    private void Shoot()
+    IEnumerator Shoot()
     {
+        canShoot = false;
         PlayGunFlash();
         ProcessRayCast();
+        amo.ReduceAmoAmount();
+        yield return new WaitForSeconds(waitToFireTime);
+        canShoot = true;
     }
 
     private void PlayGunFlash()

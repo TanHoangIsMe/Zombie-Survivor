@@ -645,7 +645,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carbine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6379467552967142812, guid: ada2587319194f542957a8c2ae277cb9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2337074158996965286, guid: ada2587319194f542957a8c2ae277cb9, type: 3}
@@ -682,3 +683,5 @@ MonoBehaviour:
   range: 100
   damage: 3
   gunflash: {fileID: 0}
+  hitEffect: {fileID: 0}
+  amo: {fileID: 0}
