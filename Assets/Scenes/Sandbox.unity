@@ -321,6 +321,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 475843568}
     - target: {fileID: 6841937476076849804, guid: 0485960b84a11674a84b8e670ca6ca48, type: 3}
+      propertyPath: amoType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841937476076849804, guid: 0485960b84a11674a84b8e670ca6ca48, type: 3}
       propertyPath: FPCamera
       value: 
       objectReference: {fileID: 1264285827}
@@ -353,6 +357,10 @@ PrefabInstance:
       propertyPath: amo
       value: 
       objectReference: {fileID: 475843568}
+    - target: {fileID: -3213825407114089954, guid: 324984b4e120d1745b37954b98c9c819, type: 3}
+      propertyPath: amoType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -3213825407114089954, guid: 324984b4e120d1745b37954b98c9c819, type: 3}
       propertyPath: FPCamera
       value: 
@@ -542,7 +550,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba5e0a61bde668f4e91d4b074e9a9a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amoAmount: 10
+  amoSlots:
+  - amoType: 0
+    amoAmount: 20
+  - amoType: 1
+    amoAmount: 8
+  - amoType: 2
+    amoAmount: 40
 --- !u!4 &624145764 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2337074158996965286, guid: 324984b4e120d1745b37954b98c9c819, type: 3}
