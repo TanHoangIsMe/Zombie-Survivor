@@ -18,6 +18,12 @@ public class Amo : MonoBehaviour
         return GetAmoSlot(amoType).amoAmount;
     }
 
+    public void IncraseAmoAmount(AmoType amoType, int amoAmount) 
+    {
+        Debug.Log(GetAmoSlot(amoType).amoAmount + " - " + amoAmount);
+        GetAmoSlot(amoType).amoAmount += amoAmount;
+    }
+
     public void ReduceAmoAmount(AmoType amoType)
     {
         GetAmoSlot(amoType).amoAmount--;

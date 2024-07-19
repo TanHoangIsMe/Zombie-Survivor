@@ -13,6 +13,7 @@ public class WeaponZoom : MonoBehaviour
     [SerializeField] float zoomedInSensitivity = 0.25f;
 
     bool zoomState = false;
+    public bool ZoomState { set { zoomState = value; } }
     FirstPersonController firstPersonController;
 
     void Start()
@@ -20,22 +21,39 @@ public class WeaponZoom : MonoBehaviour
         firstPersonController = GetComponent<FirstPersonController>();
     }
 
+    private void OnDisable()
+    {
+        ZoomOut();
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(1))
         { 
-            zoomState = !zoomState;
-            if (zoomState)
+            if (zoomState == false)
             {
-                playerFollowCam.m_Lens.FieldOfView = zoomedInFOV;
-                firstPersonController.RotationSpeed = zoomedInSensitivity;
+                ZoomIn();
             }
             else
             {
-                playerFollowCam.m_Lens.FieldOfView = zoomedOutFOV;
-                firstPersonController.RotationSpeed = zoomedOutSensitivity;
+                ZoomOut();
             }
         }
     }
+
+    private void ZoomIn()
+    {
+        zoomState = true;
+        playerFollowCam.m_Lens.FieldOfView = zoomedInFOV;
+        firstPersonController.RotationSpeed = zoomedInSensitivity;
+    }
+
+    private void ZoomOut()
+    {
+        zoomState = false;
+        playerFollowCam.m_Lens.FieldOfView = zoomedOutFOV;
+        firstPersonController.RotationSpeed = zoomedOutSensitivity;
+    }
+
 }
