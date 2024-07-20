@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] float hitPoint = 100f;
+    bool isDead = false;
+    public bool IsDead {  get { return isDead; } }
 
     public void TakeDamage(float damage)
     {
@@ -12,8 +14,9 @@ public class EnemyHealth : MonoBehaviour
         hitPoint -= damage;
         if(hitPoint < 0f)
         {
-            Destroy(gameObject);
+            if(isDead) return;
+            isDead = true;
+            GetComponent<Animator>().SetTrigger("die");
         }
-        Debug.Log(hitPoint);
     }
 }
