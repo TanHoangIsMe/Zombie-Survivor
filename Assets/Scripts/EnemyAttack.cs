@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] public float damage = 40f;
+
     PlayerHealth playerHealth;
 
     // Start is called before the first frame update
@@ -15,6 +16,10 @@ public class EnemyAttack : MonoBehaviour
 
     void AttackHitEvent()
     {
-        if (playerHealth != null) playerHealth.Attacked(damage);
+        if (playerHealth != null)
+        {
+            playerHealth.Attacked(damage);
+            GetComponent<DisplayDamage>().TurnOnSplashCanvas();
+        }
     }
 }
