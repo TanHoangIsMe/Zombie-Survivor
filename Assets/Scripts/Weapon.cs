@@ -30,6 +30,10 @@ public class Weapon : MonoBehaviour
     private void DisplayAmoText()
     {
         amoText.text =$"{amoType.ToString()}: {amo.GetAmoAmount(amoType).ToString()}";
+        if (amoType == AmoType.Carbine) amoText.color = Color.gray;
+        else if (amoType == AmoType.Sniper) amoText.color = Color.red;
+        else if (amoType == AmoType.MiniGun) amoText.color = Color.yellow;
+        else return;
     }
 
     IEnumerator Shoot()
